@@ -9,6 +9,7 @@ verify_ssl = true
 pytest = "*"
 django = "==3.1.2"
 django-cors-headers = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"
