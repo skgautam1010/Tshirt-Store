@@ -73,7 +73,7 @@ def signout(request,id):
 class UserViewSet(viewsets.ModelViewSet):
     permission_classes_by_action={'create':[AllowAny]}
 
-    queryset=CustomUser.objects.all.order_by('id')
+    queryset=CustomUser.objects.all().order_by('id')
     serializer_class=UserSerializer
 
     def get_permissions(self):
