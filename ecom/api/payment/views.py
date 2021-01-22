@@ -12,7 +12,7 @@ gateway = braintree.BraintreeGateway(
         braintree.Environment.Sandbox,
         merchant_id="b9rndx54sk72p6sx",
         public_key="r5s5c4pkws63xm8m",
-        private_key="647ae14a59466b76e20e1ba6739cdfbf"
+        private_key="647ae14a59466b76e20eba6739cdfbf"
     )
 )
 
