@@ -18,7 +18,7 @@ export const signup = (user) =>{
 }
 
  
-export const sigin = (user) => {
+export const signin = (user) => {
     const formData= new FormData();
     for(const name in user)
     {
