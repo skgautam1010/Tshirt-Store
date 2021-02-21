@@ -11,7 +11,7 @@ import re
 import random
 
 def generate_session_token(length=10):
-    return ''.join(random.SystemRandom.choice([chr(i) for i in range(97,123)]+ [str(i) for i in range(10)]) for _ in range(length))
+    return ''.join(random.SystemRandom().choice([chr(i) for i in range(97,123)]+ [str(i) for i in range(10)]) for _ in range(length))
 
 
 @csrf_exempt
@@ -26,8 +26,8 @@ def signin(request):
     if not re.match("^[\w\.\+\-]+\@[\w]+\.[a-z]{2,3}$",username):
         return JsonResponse({'error':'Enter a valid email'})
 
-    if len(password)<5:
-        return JsonResponse({'error':'Password needs to be atleast of 6 characters'})
+    if len(password)<3:
+        return JsonResponse({'error':'Password needs to be atleast of 3 characters'})
 
 
     UserModel=get_user_model()
@@ -63,6 +63,7 @@ def signout(request,id):
     try:
         user=UserModel.objects.get(pk=id)
         user.session_token="0"
+        user.save()
     except UserModel.DoesNotExist:
         return JsonResponse({'error':'Invalid User Id'})
     

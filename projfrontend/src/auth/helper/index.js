@@ -22,12 +22,24 @@ export const signin = (user) => {
     const formData= new FormData();
     for(const name in user)
     {
+        console.log(user[name]);
         formData.append(name,user[name])
+    }
+
+//explanation of above code in simpler manner
+    //const {email,password} = user;
+    //const formData = new FormData();
+    //formData.append('email',email);
+    //formData.append('password',password);
+
+    for(var key of formData.keys())
+    {
+        console.log("My Key",key)
     }
 
     return fetch(`${API}user/login/`,{
         method:"POST",
-        body:FormData     
+        body:formData     
     })
     .then((response) => {
         return response.json();
@@ -53,7 +65,8 @@ export const isAuthenticated = () => {
     }
     if(localStorage.getItem("jwt"))
     {
-        return JSON.parse(localStorage.getItem("jwt"))
+        return JSON.parse(localStorage.getItem("jwt"));
+        //todo:compare jwt with database json token
     }
     else{
         return false;

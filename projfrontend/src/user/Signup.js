@@ -100,9 +100,6 @@ import {signup} from "../auth/helper/index";
             {errorMessage()}
             {successMessage()}
             {signUpForm()}
-            <p className="text-white text-center">
-                {JSON.stringify(values)}
-            </p>
         </Base>
     );
 };
