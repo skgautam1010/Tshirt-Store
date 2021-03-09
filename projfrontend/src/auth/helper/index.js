@@ -42,6 +42,7 @@ export const signin = (user) => {
         body:formData     
     })
     .then((response) => {
+        console.log("SUCCESS",response);
         return response.json();
     })
     .catch(err => console.log(err));
@@ -59,7 +60,7 @@ export const authenticate = (data,next) => {
 };
 
 export const isAuthenticated = () => {
-    if(typeof window !== undefined)
+    if(typeof window == undefined)
     {
         return false;
     }

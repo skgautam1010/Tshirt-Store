@@ -24,15 +24,16 @@ export const loadCart= () =>{
             return JSON.parse(localStorage.getItem("cart"))
         }
     }
-}
+    return []
+};
 
-export const removeItemFromCart=productId =>{
+export const removeItemFromCart=(productId) =>{
     let cart=[]
     if(typeof window !==undefined)
     {
         if(localStorage.getItem("cart"))
         {
-            return JSON.parse(localStorage.getItem("cart"))
+            cart=JSON.parse(localStorage.getItem("cart"))
         }
         cart.map((product,i) => {
             if(product.id=== productId)
