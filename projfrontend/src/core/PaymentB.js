@@ -22,10 +22,11 @@ const PaymentB = ({
 
   const userId = isAuthenticated && isAuthenticated().user.id;
   const token = isAuthenticated && isAuthenticated().token;
-
+  
   const getToken = (userId, token) => {
     getmeToken(userId, token)
       .then((info) => {
+        console.log(info)
         if (info.error) {
           setInfo({
             ...info,
