@@ -5,6 +5,7 @@ export const getmeToken = (userId, token) => {
     method: "GET",
   })
     .then((response) => {
+      console.log("resP: ",response)
       return response.json();
     })
     .catch((err) => console.log(err));
@@ -24,6 +25,6 @@ export const processPayment = (userId, token, paymentInfo) => {
     .then((response) => {
       console.log("p-0", response);
       return response.json();
-    });
-  //.catch((err) => console.log(err));
+    })
+    .catch((err) => console.log(err));
 };
